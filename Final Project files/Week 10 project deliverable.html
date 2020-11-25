@@ -1,0 +1,126 @@
+<html>
+  <head>
+	<title> 
+		P5 Project
+	</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="sketch.js"></script>
+	<script> 
+	var headX = 250;
+	var headY = 100;
+	var headDirection = 1;
+	
+	var lHandX = 75;
+	var lHandY = 275;
+	var lHanddirectionx = 7;
+	var lhanddirectiony = 7;
+	
+	var torsoX = 150;
+	var torsoY = 200;
+	var torsoDirection = 20;
+	
+	var size = 22;
+	var count = 0;
+	var sizeDirection = 3;
+	
+	var lFootx = 245;
+	var lFooty = 475;
+	var lFootdirection = -25;
+	
+	var rFootx = 245;
+	var rFooty = 475;
+	var rFootdirection = -25;
+	
+function setup ()
+	{ createCanvas(300,500);}
+	function draw()
+	{ background(123 ,23,125);
+		textSize(size);
+		size+= sizeDirection;
+		count++;
+		if(count > 5)
+		{
+			sizeDirection *=-1;
+			count = 0;
+		}
+		text("Gross mustard world!", 10, 25);
+		textSize(8);
+		text("Joe Godfrey", 25, 490);
+		
+		
+		
+	fill(275,180,0);
+	circle(headX,headY,175);
+	headX+=headDirection;
+	if(headX >= 400 || headX <= 75)
+	{
+	headDirection *= -1;
+	}
+	//peepers
+	strokeWeight(15);
+		fill(5);
+		point(175, 170);
+		point(225,170);
+	//snooter
+	point(200,180);
+	//piehole
+	ellipse(200,235,30,55);
+	//follicles
+	fill(181,101,0);
+    line(135,185,185, 120);
+    line(200,160,225,130);
+	line(160,170,210,125);
+	
+    //torso
+    fill(200, 150, 0);
+    rect(torsoX,275,100,150);
+	torsoX += torsoDirection;
+	if(torsoX <= 300 || torsoX >= 0)
+	{
+	torsoDirection *= -1;
+	}
+	
+	//dunce cap
+	fill(153,50,204);
+    triangle(150,125,250,125,187,50)
+    // right arm
+    fill(10, 24, 120);
+    rect(250,275,50,10);
+    // left arm
+    rect(100,275,50,10);
+    // left leg
+    rect(150,425,10,50);
+    // right leg
+    rect(240,425,10,50);
+	
+	//left hand
+	fill(275,180,0);
+	lHandX = lHandX + lHanddirectionx;
+	lHandY = lHandY + lhanddirectiony;
+	ellipse(lHandX,lHandY,35,35);
+	
+	//left foot
+	fill(275,180,0);
+	ellipse(145,lFooty,50,25);
+	lFooty += lFootdirection;
+	if(lFooty >= 0 || lFooty <= 500)
+	{
+	lFootdirection *= 10;
+	}
+	
+	
+	//right foot
+	fill(275,180,0);
+	ellipse(245,rFooty,50,25);
+	rFooty += rFootdirection;
+	if(rFooty >= 0 || rFooty <= 500)
+	{
+	rFootdirection *= 10;
+	}
+	}
+	
+</script>
+  </head>
+  <body>
+  </body>
+</html>
